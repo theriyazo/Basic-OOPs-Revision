@@ -18,7 +18,13 @@ public class MaxInArray {
         }
         System.out.println();
         Max obj = new Max();
-        System.out.println("Maximum number in the Array is :"+obj.Max(arr));
+        int start;
+        int end;
+        System.out.println("Enter the start and end index to find the maximum number in the array");
+        start = in.nextInt();
+        end = in.nextInt();
+        System.out.println("Maximum number in the Array is :"+obj.MaxOf(arr));
+        System.out.println("Maximum number in the Array is :"+obj.MaxBetween(arr, start, end));
 
 
     }
@@ -26,14 +32,24 @@ public class MaxInArray {
 class Max{
 
 
-    public int Max(int[] array){
-        int Max = array[0];
+    public int MaxOf(int[] array){
+        int Maximum = array[0];
         for (int i = 0; i < array.length; i++) {
-            if (array[i]>Max){
-                Max = array[i];
+            if (array[i]>Maximum){
+                Maximum = array[i];
             }
         }
-        return Max;
+        return Maximum;
+    }
+    public int MaxBetween(int[] array, int start,int end){
+        int Maximum = array[start];
+        for (int i = start-1; i < end; i++) {
+            if (array[i]>Maximum){
+                Maximum = array[i];
+            }
+        }
+
+        return Maximum;
     }
 
 }
